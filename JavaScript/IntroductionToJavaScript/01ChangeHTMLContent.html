@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change HTML Content</title>
+</head>
+    <body>
+    <h1>What can JavaScript do?</h1>
+    <p>
+        One of the things that I've heard this semester is that people don't know what they can do with Java Script. Fair
+        point. This term, we are going to work on how to apply what we have just learned with JavaScript in Web pages.
+    </p>
+    <p>
+        One of the coolest parts of JavaScript is it's ability to change HTML Attributes.
+    </p>
+    <h2>
+        What are attributes?
+    </h2>
+    <p>
+        Good question, I'm glad you asked.
+    </p>
+    <ul>
+        <li>
+            All HTML elements can have attributes
+        </li>
+        <li>
+            Attributes provide additional information about an element
+        </li>
+        <li>
+            Attributes are aalways specified in the starting tag
+        </li>
+        <li>
+            Attributes usually come in name/value pairs like: name="value"
+        </li>
+    </ul>
+    <p>
+        For more examples of HTML Attributes, I highly recommend that you check out this
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes">HTML attribute reference</a>
+        kindly provided by Mozzilla Developers network
+    </p>
+
+    <h2>Examples</h2>
+
+    <h3>Example 1</h3>
+    <p id="example_1"></p>
+    <button type="button" onclick="document.getElementById('example_1').innerHTML = Date()">
+        Click me to display the date!
+    </button>
+
+    <h3>Example 2</h3>
+    <p id="example_2"></p>
+    <button type="button" onclick='document.getElementById("example_2").innerHTML = "Hello world"'>
+        Say hello world!
+    </button>
+
+    <h3>Example 3</h3>
+    <p id="example_3"></p>
+    <button type="button" onclick='document.getElementById("example_3").innerHTML = "Hello world"'>
+        Say hello world!
+    </button>
+    <button type="button" onclick='document.getElementById("example_3").innerHTML = ""'>
+        Say nothing
+    </button>
+
+    </body>
+</html>
