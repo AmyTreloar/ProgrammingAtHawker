@@ -1,0 +1,13 @@
+# GUI programming
+
+How do I construct a basic window 
+- Frame
+-- Images 
+-- Text
+-- Buttons
+- Title 
+- Multiple frames 
+- Scrollbar 
+- Menu
+
+
