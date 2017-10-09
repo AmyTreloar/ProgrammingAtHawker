@@ -22,7 +22,7 @@ One of those events is onClick which makes javascript listen if people click on 
     <body>
          <h1 onclick="changeOnClickt(this)">Click me!</h1>
         <script>
-            function changeText(id) {
+            function changeOnClickt(id) {
                 id.innerHTML = "YES!";
             }
         </script>
