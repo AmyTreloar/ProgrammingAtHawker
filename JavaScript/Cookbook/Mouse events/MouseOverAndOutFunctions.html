@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse Over and Out with Functions!</title>
+</head>
+    <body>
+        <h1 onmouseover="rollOver(this)" onmouseout="rollOut(this)">
+            Mouse over me!
+        </h1>
+    <script>
+        function rollOver(obj){
+            obj.innerHTML = "WOOHOHO!";
+        }
+
+        function rollOut(obj){
+            obj.innerHTML = "Roll the mouse over me."
+        }
+    </script>
+    </body>
+</html>
