@@ -6,13 +6,25 @@
 </head>
 <body>
 
-Username: <input type="text" onfocus="focusDetected(this)"/>
-Not Username: <input type="text" onfocus="focusDetected(this)"/>
+<div>
+    Div 1
+</div>
+
+<div>
+    Div 2
+</div>
+
+Username: <input type="text" onfocus="focusDetected(this)" onfocusout="lostFocus(this)"/>
+Not Username: <input type="text" onfocus="focusDetected(this)" onfocusout="lostFocus(this)"/>
 
 
 <script>
     function focusDetected(obj){
-        object.style.backgruond = 'yellow';
+        obj.style.background = 'yellow';
+    }
+
+    function lostFocus(obj){
+        obj.style.background = 'white'
     }
 </script>
 
