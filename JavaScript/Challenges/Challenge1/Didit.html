@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Didit</title>
+    <link rel="stylesheet" type="text/css" href="css/didit.css">
+</head>
+<body>
+<header></header>
+<nav>
+    <ul>
+        <li>Link</li>
+        <li>Link</li>
+    </ul>
+</nav>
+<section>
+    <div class="post" onmouseover="mouseOverPost(this)" onmouseleave="mouseLeavePost(this)">
+        <img class="vote" src="img/upvote-downvote.png" onclick="changeVote(this)"/>
+
+        <span class="title">Title:</span>
+        <span class="subtitle">sub title text</span>
+        <br/>
+        <span class="description">description</span>
+    </div>
+</section>
+<script src="js/didit.js"></script>
+</body>
+</html>
