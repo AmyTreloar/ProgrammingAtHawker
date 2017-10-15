@@ -1,0 +1,44 @@
+section div img {
+    height: 25px;
+    vertical-align:middle;
+}
+
+.post {
+    border-color:    black;
+    border-width: 0.5px;
+    border-style: solid;
+}
+
+
+.title {
+    font-size: x-large;
+}
+
+.subtitle {
+    font-size: small;
+}
+
+.description {
+    font-size:6px;
+    padding-left:15px;
+}
+
+section {
+    float: left;
+    vertical-align: middle;
+}
+
+nav {
+    padding:20px 20px 0 0;
+    display: block;
+    float:left;
+    vertical-align: middle;
+}
+
+nav ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    display:block;
+    background-color:#ddd;
+}
