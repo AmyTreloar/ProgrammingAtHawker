@@ -6,6 +6,9 @@ class Example(Frame):
         super().__init__()
         self.initUI()
 
+    def open_new_window(self):
+        window = Toplevel(self)
+
     def initUI(self):
         self.style = Style()
         self.style.theme_use("default")
@@ -13,7 +16,7 @@ class Example(Frame):
         self.master.title("Quit button")
         self.pack(fill=BOTH, expand=1)
 
-        quitButton = Button(self, text="Quit", command=self.quit)
+        quitButton = Button(self, text="New Window", command=lambda: self.open_new_window())
         quitButton.place(x=150, y=50)
 
 

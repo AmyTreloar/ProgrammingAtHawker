@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .gameWindow {
+            width: 500px;
+            height: 300px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        #demo {
+            width:10px;
+            height:10px;
+            position:absolute;
+            background-color: black;
+            left:0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="gameWindow" onmousemove="showCoords(event)">
+    <p id="demo"></p>
+</div>
+
+<script>
+    function showCoords(event){
+        var x = event.clientX;
+        var y = event.clientY;
+        console.log("x="+x+", y="+y);
+        var demo = document.getElementById("demo");
+        demo.style.left = x+"px";
+        demo.style.top = y+"px";
+
+    }
+</script>
+
+</body>
+</html>

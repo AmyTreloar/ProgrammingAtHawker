@@ -1,6 +1,12 @@
-section div img {
-    height: 25px;
+.upvote {
+    font-weight: 900;
+    font-size:large;
     vertical-align:middle;
+    float:left;
+    padding-top:1em;
+    padding-bottom: 1em;
+    padding-left:0.5em;
+    padding-right: 0.5em;
 }
 
 .post {
