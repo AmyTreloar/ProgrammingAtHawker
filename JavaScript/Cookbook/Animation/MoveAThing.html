@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Moving things around</title>
+    <style>
+        #example {
+            position:relative;
+            width:20px;
+            height:20px;
+            background-color: black;
+            animation-name: example;
+            animation-duration: 12s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes example {
+            0% {
+                left:20px;
+                top:20px;
+            }
+            25% {
+                left:20px;
+                top:120px;
+            }
+            50% {
+                left:120px;
+                top:120px;
+            }
+            75% {
+                left:120px;
+                top:20px;
+            }
+            100% {
+                left:20px;
+                top:20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="example"></div>
+
+<scrit>
+
+</scrit>
+</body>
+</html>

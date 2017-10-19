@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Example of an Object</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div id="example"></div>
+<div id="car"></div>
+
+<script>
+    function Car(stuff){
+        this.make = stuff;
+        this.getMake = function() {
+            return this.make;
+        };
+    };
+
+    foo = new Car("ford");
+    document.getElementById("car").innerHTML = "Hey, this car is a "+ foo.getMake();
+</script>
+</body>
+</html>
