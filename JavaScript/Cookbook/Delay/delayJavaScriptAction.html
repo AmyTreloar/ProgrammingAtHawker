@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delaying a JavaScript Action</title>
+    <style>
+        #example {
+            position:relative;
+            width:20px;
+            height:20px;
+            left:20px;
+            top:20px;
+            background-color: black;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+<div id="example"></div>
+
+<script>
+    function delayBySeconds(id, delay){
+        console.log(id +" "+document.getElementById('example'));
+        var elem = document.getElementById(id);
+        setTimeout(
+            function(){
+            elem.style.visibility = "hidden";
+            },
+            delay * 1000
+        );
+    }
+
+    document.onload = delayBySeconds("example", 2);
+
+</script>
+</body>
+</html>
