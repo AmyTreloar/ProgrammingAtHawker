@@ -31,6 +31,60 @@
             width: 10px;
             height: 10px;
         }
+
+        .window {
+            width:50px;
+            height:50px;
+            border: 3px solid black;
+        }
+
+        #window1 {
+            position:relative;
+            left:400px;
+            top:20px;
+        }
+
+        .window .top {
+            position:relative;
+            top:0;
+            height:25px;
+            background-color: lightskyblue;
+        }
+
+        .window .bottom {
+            position:relative;
+            bottom:0;
+            height:25px;
+            background-color: brown;
+        }
+
+        .sun {
+            height:5px;
+            width:5px;
+            background-color: yellow;
+            border-radius: 50%;
+        }
+
+        #sun1 {
+            position:relative;
+            top:0;
+            left:0;
+            animation-name: sun1;
+            animation-duration: 15s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes sun1 {
+            0% {
+                left:0;
+                right:0;
+            }
+            100% {
+                left:50px;
+                top:23px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -41,6 +95,18 @@
 <div id="door2">
 
 </div>
+
+<div class="window" id="window1">
+    <div class="top">
+        <div class="sun" id="sun1"></div>
+    </div>
+    <div class="bottom">
+
+    </div>
+
+</div>
+
+
 
 
 </body>

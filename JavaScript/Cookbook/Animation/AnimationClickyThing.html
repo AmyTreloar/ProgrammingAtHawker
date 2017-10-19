@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animated Clicky thing</title>
+    <style>
+        #example {
+            position:relative;
+            width:20px;
+            height:20px;
+            left:20px;
+            top:20px;
+            animation-name: example;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            visibility:visible;
+            background-color: black;
+        }
+
+        @keyframes example {
+            0% {
+                left:20px;
+            }
+            50%{
+                left:40px;
+            }
+            100% {
+                left:20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="example" onclick="fadeThing(this)"></div>
+
+<script>
+    function fadeThing(id){
+        id.style.animationIterationCount = "0";
+        id.style.visibility = "hidden";
+
+    }
+</script>
+</body>
+</html>
