@@ -14,7 +14,6 @@ while True:
         break
     s.send("{}:MSG:{}".format(name, out_msg).encode('ascii'))
     in_msg = s.recv(1024).decode('utf-8')
-    #print(in_msg, file=sys.stderr)
     id, msg_type, msg = in_msg.split(':')
     print("{}:{}:{}".format(id, msg_type, msg))
 s.close()
