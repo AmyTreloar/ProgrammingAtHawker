@@ -33,18 +33,16 @@ def inbound_msgs(client_socket):
 
 
 def main():
-    ricks = 2
-    for i in range(0, ricks):
-        name = "{}-{}".format(choice(string.ascii_lowercase), randint(1, 999))
-        print(name)
-        client_socket = socket.socket()
-        host = socket.gethostname()
-        port = 12345
-        client_socket.connect((host, port))
-        client_socket.send("CLIENT_NAME:{}".format(name).encode('ascii'))
-        Thread(target=lambda: rick_roll(client_socket)).start()
-        Thread(target=lambda: inbound_msgs(client_socket)).start()
-        sleep(randint(1, 5))
+    name = "{}-{}".format(choice(string.ascii_lowercase), randint(1, 999))
+    client_socket = socket.socket()
+    host = socket.gethostname()
+    port = 12345
+    client_socket.connect((host, port))
+    print("I am the rick from", name)
+    client_socket.send("CLIENT_NAME:{}".format(name).encode('ascii'))
+    Thread(target=lambda: rick_roll(client_socket)).start()
+    Thread(target=lambda: inbound_msgs(client_socket)).start()
+    sleep(randint(1, 5))
 
 
 if __name__ == "__main__":
