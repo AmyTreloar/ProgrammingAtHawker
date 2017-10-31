@@ -32,11 +32,11 @@
     </div>
     <div class="inventorySheet">
         <h2>Inventory</h2>
-        <button class="sword" onclick="addStuff(this)">Add Sword</button>
-        <button class="sword" onclick="removeStuff(this)">Remove Sword</button>
-        <button class="sword" onclick="removeAllOfThisStuff(this)">Remove all swords"</button>
-        <button class="apple" onclick="addStuff(this)">Add Apple</button>
-        <button class="apple" onclick="removeStuff(this)">Remove Apple</button>
+        <button class="sword" onclick="addStuff(this, player)">Add Sword</button>
+        <button class="sword" onclick="removeStuff(this, player)">Remove Sword</button>
+        <button class="sword" onclick="removeAllOfThisStuff(this, player)">Remove all swords"</button>
+        <button class="apple" onclick="addStuff(this, player)">Add Apple</button>
+        <button class="apple" onclick="removeStuff(this, player)">Remove Apple</button>
         <div id="inventory"></div>
     </div>
 
@@ -72,7 +72,11 @@
              * @param item
              */
             this.removeItem = function(item){
+                console.log('REMOVE THIS ITEM:'+item);
                 var found = this.inventory.indexOf(item);
+                if (found === -1) {
+                    return;
+                }
                 this.inventory.splice(found, 1);
                 console.log(this.inventory);
             };
@@ -95,42 +99,46 @@
          * Instantiates a new character to the variable adam.
          * @type {Character}
          */
-        var adam = new Character("Adam the Brave", "Awesome", "Teacher", 9001);
+        var player = new Character("Adam the Brave", "Awesome", "Teacher", 9001);
 
         /**
          * Initialises the page with the details from the character.
          */
         function initPage(){
-            document.getElementById('name').innerHTML = adam.name;
-            document.getElementById('archetype').innerHTML = adam.archetype;
-            document.getElementById('race').innerHTML = adam.race;
-            document.getElementById('age').innerHTML = adam.age;
+            document.getElementById('name').innerHTML = player.name;
+            document.getElementById('archetype').innerHTML = player.archetype;
+            document.getElementById('race').innerHTML = player.race;
+            document.getElementById('age').innerHTML = player.age;
         }
 
         /**
          * adds a specific item to the characters inventory.
          * @param elem
+         * @param character
          */
-        function addStuff(elem){
-            adam.addItem(elem.className);
+        function addStuff(elem, character){
+            console.log(character);
+            character.addItem(elem.className);
             drawInventory();
         }
 
         /**
          * removes a specific item from the characters inventory
          * @param elem
+         * @param character
          */
-        function removeStuff(elem){
-            adam.removeItem(elem.className)
+        function removeStuff(elem, character){
+            character.removeItem(elem.className)
             drawInventory();
         }
 
         /**
          * removes all instances of an item from a characters inventory
          * @param elem
+         * @param character
          */
-        function removeAllOfThisStuff(elem){
-            adam.removeAllOfType(elem.className);
+        function removeAllOfThisStuff(elem, character){
+            character.removeAllOfType(elem.className);
             drawInventory();
         }
 
@@ -140,9 +148,9 @@
          */
         function listHelper(){
             var list = document.createElement('ul');
-            for (var i = 0; i < adam.inventory.length; i++){
+            for (var i = 0; i < player.inventory.length; i++){
                 var item = document.createElement('li');
-                item.appendChild(document.createTextNode(adam.inventory[i]));
+                item.appendChild(document.createTextNode(player.inventory[i]));
                 list.appendChild(item);
             }
             return list;
@@ -154,7 +162,7 @@
          * 2. Then it recreates the entire node structure of the children nodes.
          *
          * NOTE: There are likely better ways of doign this in production. Probably by only appending new items and
-         * removing items directly. 
+         * removing items directly.
          */
         function drawInventory(){
             document.getElementById("inventory").innerHTML = "";
