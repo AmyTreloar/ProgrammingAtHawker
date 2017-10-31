@@ -23,22 +23,20 @@
     </style>
 </head>
 <body>
+    <div class="gameWindow" onmousemove="showCoords(event)">
+        <p id="demo"></p>
+    </div>
 
-<div class="gameWindow" onmousemove="showCoords(event)">
-    <p id="demo"></p>
-</div>
+    <script>
+        function showCoords(event){
+            var x = event.clientX;
+            var y = event.clientY;
+            console.log("x="+x+", y="+y);
+            var demo = document.getElementById("demo");
+            demo.style.left = x+"px";
+            demo.style.top = y+"px";
 
-<script>
-    function showCoords(event){
-        var x = event.clientX;
-        var y = event.clientY;
-        console.log("x="+x+", y="+y);
-        var demo = document.getElementById("demo");
-        demo.style.left = x+"px";
-        demo.style.top = y+"px";
-
-    }
-</script>
-
+        }
+    </script>
 </body>
 </html>
