@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InventorySystem</title>
+    <style>
+        .inventorySheet #inventory {
+            background-color: antiquewhite;
+            width: 500px;
+        }
+    </style>
+</head>
+<body onload="initPage()">
+    <div class="characterSheetTitle">
+        <h1>Character Sheet</h1>
+        <p>
+            <span class="characterSheetTitle"></span>
+            <span id="name"></span>
+        </p>
+        <p>
+            <span class="characterSheetTitle"></span>
+            <span id="race"></span>
+        </p>
+        <p>
+            <span class="characterSheetTitle"></span>
+            <span id="archetype"></span>
+        </p>
+        <p>
+            <span class="characterSheetTitle"></span>
+            <span id="age"></span>
+        </p>
+    </div>
+    <div class="inventorySheet">
+        <h2>Inventory</h2>
+        <button class="sword" onclick="addStuff(this)">Add Sword</button>
+        <button class="sword" onclick="removeStuff(this)">Remove Sword</button>
+        <button class="sword" onclick="removeAllOfThisStuff(this)">Remove all swords"</button>
+        <button class="apple" onclick="addStuff(this)">Add Apple</button>
+        <button class="apple" onclick="removeStuff(this)">Remove Apple</button>
+        <div id="inventory"></div>
+    </div>
+
+    <script>
+
+        // JavaScript is a bit different on how it makes
+        function Character(name, race, archetype, age) {
+            this.name = name;
+            this.race = race;
+            this.archetype = archetype;
+            this.age = age;
+            this.inventory = [];
+
+            this.addItem = function(item) {
+                this.inventory.push(item);
+                console.log(this.inventory)
+
+            };
+
+            this.removeItem = function(item){
+                var found = this.inventory.indexOf(item);
+                this.inventory.splice(found, 1);
+                console.log(this.inventory);
+            };
+
+            this.removeAllOfType = function(item) {
+                var found = this.inventory.indexOf(item);
+                while (found !== -1) {
+                    this.inventory.splice(found, 1);
+                    found = this.inventory.indexOf(item);
+                }
+                console.log(this.inventory);
+            };
+        }
+
+        var adam = new Character("Adam the Brave", "Awesome", "Teacher", 9001);
+
+        function initPage(){
+            document.getElementById('name').innerHTML = adam.name;
+            document.getElementById('archetype').innerHTML = adam.archetype;
+            document.getElementById('race').innerHTML = adam.race;
+            document.getElementById('age').innerHTML = adam.age;
+        }
+        function addStuff(elem){
+            adam.addItem(elem.className);
+            drawInventory();
+        }
+
+        function removeStuff(elem){
+            adam.removeItem(elem.className)
+            drawInventory();
+        }
+
+        function removeAllOfThisStuff(elem){
+            adam.removeAllOfType(elem.className);
+            drawInventory();
+        }
+
+        function listHelper(){
+            var list = document.createElement('ul');
+            for (var i = 0; i < adam.inventory.length; i++){
+                var item = document.createElement('li');
+                item.appendChild(document.createTextNode(adam.inventory[i]));
+                list.appendChild(item);
+            }
+            return list;
+        }
+
+        function drawInventory(){
+            document.getElementById("inventory").innerHTML = "";
+            document.getElementById("inventory").appendChild(listHelper());
+
+        }
+
+    </script>
+</body>
+</html>
