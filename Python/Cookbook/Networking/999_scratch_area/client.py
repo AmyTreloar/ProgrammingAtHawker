@@ -4,7 +4,7 @@ import sys
 
 s = socket.socket()
 host = socket.gethostname()
-port = 12345
+port = 12346
 
 name = input("What is your name? ")
 s.connect((host, port))

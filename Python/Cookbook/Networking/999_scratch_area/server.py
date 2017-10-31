@@ -12,9 +12,6 @@ while True:
     client, address = s.accept()
     msg = client.recv(1024)
     msg = msg.decode("utf-8")
-    id, msg_type, msg = msg.split(':')
-    client.send("SVR:ECHO:{} {}!\r\n".format(id, msg).encode('ascii'))
+    client_id, msg_type, msg = msg.split(':')
+    client.send("SVR:ECHO:{} {}!\r\n".format(client_id, msg).encode('ascii'))
     client.close()
-
-
-
