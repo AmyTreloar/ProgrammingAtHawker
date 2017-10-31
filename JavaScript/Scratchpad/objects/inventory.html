@@ -42,7 +42,14 @@
 
     <script>
 
-        // JavaScript is a bit different on how it makes
+        /**
+         * This is, basically, how we make a class in JavaScript
+         * @param name: the name of the character
+         * @param race: the race of the character
+         * @param archetype: the class/archetype of the character
+         * @param age: the age of the character
+         * @constructor: is implicit
+         */
         function Character(name, race, archetype, age) {
             this.name = name;
             this.race = race;
@@ -50,18 +57,30 @@
             this.age = age;
             this.inventory = [];
 
+            /**
+             * Adds an item to the characters inventory
+             * @param item
+             */
             this.addItem = function(item) {
                 this.inventory.push(item);
                 console.log(this.inventory)
 
             };
 
+            /**
+             * removes an item from the inventory
+             * @param item
+             */
             this.removeItem = function(item){
                 var found = this.inventory.indexOf(item);
                 this.inventory.splice(found, 1);
                 console.log(this.inventory);
             };
 
+            /**
+             *  removes all copies of an item from an inventory
+             * @param item
+             */
             this.removeAllOfType = function(item) {
                 var found = this.inventory.indexOf(item);
                 while (found !== -1) {
@@ -72,29 +91,53 @@
             };
         }
 
+        /**
+         * Instantiates a new character to the variable adam.
+         * @type {Character}
+         */
         var adam = new Character("Adam the Brave", "Awesome", "Teacher", 9001);
 
+        /**
+         * Initialises the page with the details from the character.
+         */
         function initPage(){
             document.getElementById('name').innerHTML = adam.name;
             document.getElementById('archetype').innerHTML = adam.archetype;
             document.getElementById('race').innerHTML = adam.race;
             document.getElementById('age').innerHTML = adam.age;
         }
+
+        /**
+         * adds a specific item to the characters inventory.
+         * @param elem
+         */
         function addStuff(elem){
             adam.addItem(elem.className);
             drawInventory();
         }
 
+        /**
+         * removes a specific item from the characters inventory
+         * @param elem
+         */
         function removeStuff(elem){
             adam.removeItem(elem.className)
             drawInventory();
         }
 
+        /**
+         * removes all instances of an item from a characters inventory
+         * @param elem
+         */
         function removeAllOfThisStuff(elem){
             adam.removeAllOfType(elem.className);
             drawInventory();
         }
 
+        /**
+         * This creates an unordered list of items that is stored in the characters inventory array.
+         * @returns {Element}
+         */
         function listHelper(){
             var list = document.createElement('ul');
             for (var i = 0; i < adam.inventory.length; i++){
@@ -105,6 +148,14 @@
             return list;
         }
 
+        /**
+         * Refreshes the inventory.
+         * 1. First it removes everything from the innerHTML.
+         * 2. Then it recreates the entire node structure of the children nodes.
+         *
+         * NOTE: There are likely better ways of doign this in production. Probably by only appending new items and
+         * removing items directly. 
+         */
         function drawInventory(){
             document.getElementById("inventory").innerHTML = "";
             document.getElementById("inventory").appendChild(listHelper());
