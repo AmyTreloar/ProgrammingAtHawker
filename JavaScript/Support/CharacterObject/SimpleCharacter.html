@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Character</title>
+    <style>
+        .characterSheetTitle {
+            font-weight: bold;
+        }
+
+        .field {
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body onload="initPage()">
+    <div class="characterSheetTitle">
+        <h1>Character Sheet</h1>
+        <p>
+            <span class="characterSheetTitle">Name: </span>
+            <span class="field" id="name"></span>
+        </p>
+        <p>
+            <span class="characterSheetTitle">Race: </span>
+            <span class="field" id="race"></span>
+        </p>
+        <p>
+            <span class="characterSheetTitle">Class: </span>
+            <span class="field" id="archetype"></span>
+        </p>
+
+        <p>
+            <span class="characterSheetTitle">Saying:</span>
+            <span class="field" id="saying"></span>
+        </p>
+    </div>
+    <script>
+        function Character(name, race, classType){
+            this.name = name;
+            this.race = race;
+            this.classType = classType;
+
+            this.say = function(x){
+                return this.name + " says " + x;
+            }
+        }
+
+        var player = null;
+        function initPage(){
+            player = new Character("Bob the Wizard", "Human", "Pirate");
+            document.getElementById('name').innerHTML =player.name;
+            document.getElementById('race').innerHTML =player.race;
+            document.getElementById('archetype').innerHTML =player.classType;
+            document.getElementById('saying').innerHTML =player.say("Arr, I'm a pirate wizard!");
+        }
+    </script>
+</body>
+</html>

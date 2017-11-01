@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Inventory</title>
+    <style>
+        .inventorySheet #inventory {
+            background-color: antiquewhite;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="inventorySheet">
+        <h2>Inventory</h2>
+        <button class="sword" onclick="addStuff(this)">Add Sword</button>
+        <button class="sword" onclick="removeStuff(this)">Remove Sword</button>
+        <button class="sword" onclick="removeAllOfThisStuff(this)">Remove all swords"</button>
+        <button class="apple" onclick="addStuff(this)">Add Apple</button>
+        <button class="apple" onclick="removeStuff(this)">Remove Apple</button>
+        <div id="inventory"></div>
+    </div>
+    <script>
+        var inventory = [];
+        function addItem(item){
+            inventory.push(item);
+        }
+        function removeItem(item){
+            var found = inventory.indexOf(item);
+            if (found === -1){
+                return;
+            }
+            inventory.splice(found, 1);
+        }
+        function removeAllItemsOfType(item){
+            var found = inventory.indexOf(item);
+            while (found !== -1) {
+                inventory.splice(found, 1);
+                found = inventory.indexOf(item);
+            }
+            console.log(inventory);
+        }
+    </script>
+</body>
+</html>
