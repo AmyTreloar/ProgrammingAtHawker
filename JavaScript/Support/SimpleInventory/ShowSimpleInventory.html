@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Inventory</title>
+    <style>
+        .inventorySheet #inventory {
+            background-color: antiquewhite;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="inventorySheet">
+        <h2>Inventory</h2>
+        <button class="sword" onclick="addItem(this)">Add Sword</button>
+        <button class="sword" onclick="removeItem(this)">Remove Sword</button>
+        <button class="sword" onclick="removeAllItemsOfType(this)">Remove all swords</button>
+        <button class="apple" onclick="addItem(this)">Add Apple</button>
+        <button class="apple" onclick="removeItem(this)">Remove Apple</button>
+        <div id="inventory"></div>
+    </div>
+    <script>
+        var inventory = [];
+        function addItem(item){
+            console.log("Add item: "+item.className);
+            inventory.push(item.className);
+            console.log(inventory)
+            drawInventory()
+        }
+        function removeItem(item){
+            console.log("Remove item: "+item.className);
+            var found = inventory.indexOf(item.className);
+            if (found === -1){
+                return;
+            }
+            inventory.splice(found, 1);
+            console.log(inventory)
+            drawInventory()
+        }
+        function removeAllItemsOfType(item){
+            console.log("Remove all items: "+item.className);
+            var found = inventory.indexOf(item.className);
+            while (found !== -1) {
+                inventory.splice(found, 1);
+                found = inventory.indexOf(item.className);
+            }
+            console.log(inventory);
+            drawInventory()
+        }
+
+        function makeList() {
+            var list = document.createElement('ul');
+            for (var i = 0; i < inventory.length; i++){
+                var item = document.createElement('li');
+                item.appendChild(document.createTextNode(inventory[i]));
+                list.appendChild(item);
+            }
+            return list;
+        }
+
+        function drawInventory(){
+            console.log("draw Inventory");
+            document.getElementById("inventory").innerHTML = "";
+            document.getElementById("inventory").appendChild(makeList());
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Character example with javascript</title>
+    <style>
+        #inventory {
+            width: 10em;
+            background-color: lightskyblue;
+            overflow-wrap:break-word;
+        }
+
+        .characterSheetTitle {
+            font-weight: bold;
+        }
+
+
+    </style>
+</head>
+<body>
+<h1>Player</h1>
+<div>
+    <p>
+        <span class="characterSheetTitle">Name:</span>
+        <span id="name"></span>
+    </p>
+    <p>
+        <span class="characterSheetTitle">Race:</span>
+        <span id="race"></span>
+    </p>
+    <p>
+        <span class="characterSheetTitle">Age:</span>
+        <span id="age"></span>
+    </p>
+
+
+</div>
+
+<div>
+    <h3>Inventory</h3>
+    <div id="inventory"></div>
+</div>
+<div>
+    <button id="sword" onclick="pickUpStuff(this)">Pick up sword</button>
+    <button id="apple" onclick="pickUpStuff(this)">Pick up apple</button>
+    <button id="pears" onclick="endlessPickUp(this)">Pick up pear</button>
+</div>
+<script>
+    //var temp_name = prompt("Hey, what is your name?");
+
+    var character = {
+        name: "Adam the Brave",//temp_name,
+        race: 'Nerd',
+        age: '9001',
+        inventory: []
+    };
+
+    document.getElementById("name").innerHTML = character.name;
+    document.getElementById("race").innerHTML = character.race;
+    document.getElementById("age").innerHTML = character.age;
+
+
+
+    function pickUpStuff(elem){
+        character.inventory.push(elem.id);
+        elem.innerHTML = "drop "+elem.id;
+        elem.setAttribute("onClick", "dropStuff(this)");
+        showList();
+    }
+
+    function dropStuff(elem){
+        var found = character.inventory.indexOf(elem.id);
+        while (found !== -1) {
+            character.inventory.splice(found, 1);
+            found = character.inventory.indexOf(character.inventory.indexOf(elem.id))
+        }
+        elem.setAttribute("onClick", "pickUpStuff(this)");
+        elem.innerHTML = "Pick up "+elem.id;
+        showList();
+    }
+
+    function endlessPickUp(elem){
+        character.inventory.push(elem.id);
+        showList();
+    }
+
+    function showList(){
+        document.getElementById('inventory').innerHTML = "";
+        document.getElementById('inventory').appendChild(makeList())
+    }
+
+    function makeList(){
+        var list = document.createElement("ul");
+        for (var i = 0; i < character.inventory.length; i++){
+            var item = document.createElement('li');
+            item.appendChild(document.createTextNode(character.inventory[i]));
+            list.appendChild(item);
+        }
+        return list;
+    }
+</script>
+</body>
+</html>
