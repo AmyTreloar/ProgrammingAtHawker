@@ -57,6 +57,10 @@ Arduino/cmake-build-debug/CMakeFiles/clion-log.txt
 *.vcxproj
 *.filters
 
+Arduino/*/.project
+Arduino/*/.cproject
+Arduino/*/*/language.settings.xml
+Arduino/*/*/*.prefs
 Arduino/.metadata/*
 Arduino/RoboGuy/RoboGuy/__vm/.RoboGuy.vsarduino.h
 Arduino/RoboGuy/RoboGuy/__vm/.RoboGuy.vsarduino.h
