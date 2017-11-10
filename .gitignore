@@ -56,6 +56,8 @@ Arduino/cmake-build-debug/CMakeFiles/clion-log.txt
 *.sln
 *.vcxproj
 *.filters
+
+Arduino/.metadata/*
 Arduino/RoboGuy/RoboGuy/__vm/.RoboGuy.vsarduino.h
 Arduino/RoboGuy/RoboGuy/__vm/.RoboGuy.vsarduino.h
 Arduino/RoboGuy/RoboGuy/__vm/Compile.vmps.xml
@@ -74,3 +76,9 @@ Arduino/RoboGuy/RoboGuy/Release/board.buildinfo
 Arduino/RoboGuy/RoboGuy/__vm/.RoboGuy.vsarduino.h
 Arduino/RoboGuy/.vs/RoboGuy/v15/.suo
 Arduino/RoboGuy/.vs/RoboGuy/v15/.suo
+Arduino/.metadata/.lock
+Arduino/.metadata/.log
+*.zip
+Arduino/.metadata/.plugins/org.eclipse.cdt.core/.log
+Arduino/.metadata/.plugins/org.eclipse.cdt.make.core/specs.c
+Arduino/RemoteSystemsTempFiles/.project
