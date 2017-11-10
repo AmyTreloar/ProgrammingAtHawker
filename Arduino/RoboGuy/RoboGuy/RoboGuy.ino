@@ -41,15 +41,55 @@
 /*
  Name:		RoboGuy.ino
  Created:	11/9/2017 5:47:07 PM
- Author:	bahab
+ Author:	Adam Carter
 */
+
+EVShield evshield;
+EVs_EV3Infrared dist1;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
+	Serial.begin(115200);
+	delay(500);
+	Serial.println("Initialising device...");
 
+	evshield.init(SH_HardwareI2C);
+
+	Serial.println("Press Go to continue...");
+	while (!evshield.getButtonState(BTN_GO)) {
+		if (millis() % 1000 < 3) {
+			Serial.print(".");
+			delay(100);
+		}
+
+		dist1.init(&evshield, SH_BAS1);
+		evshield.bank_a.motorReset();
+		evshield.bank_b.motorReset();
+	}
+	Serial.println("Init complete");
 }
+
+int a; 
+char str[256];
+bool touch_status;
+bool last_status;
 
 // the loop function runs over and over again until power down or reset
 void loop() {
-  
+	//a = touch1.readRaw();
+	//touch_status = touch1.isPressed();
+	//sprintf(str, "touch1: is pressed: %s", touch_status ? "true" : "false");
+	/**Serial.println(str);
+	if (touch_status != last_status) {
+		Serial.println("Run unlimited");
+		evshield.bank_a.motorRunUnlimited(SH_Motor_1, SH_Direction_Forward, 100);
+	}
+	else {
+		Serial.println("Stop");
+		evshield.bank_a.motorStop(SH_Motor_1, SH_Next_Action_Float);
+	}
+	last_status = touch_status;**/
+	Serial.println(dist1.readProximity());
+	delay(100);
 }
+
