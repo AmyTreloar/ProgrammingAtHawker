@@ -1,4 +1,6 @@
 #include <Wire.h>
+
+#include <Wire.h>
 #include <EVShield.h>
 #include <EVs_NXTTouch.h>
 #include <EVs_NXTLight.h>
