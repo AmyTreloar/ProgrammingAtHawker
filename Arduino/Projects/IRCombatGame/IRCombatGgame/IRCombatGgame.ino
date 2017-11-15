@@ -60,13 +60,12 @@ void setup(){
 
 void loop(){
   buttonState = digitalRead(buttonPin);
-  //Serial.println(buttonState);
-  if (irrecv.decode(&results)){
-    Serial.println(results.value, HEX);
-    irrecv.resume();
-  }
   if (buttonState == HIGH) {
     rumble.goForwards();
+    if (irrecv.decode(&results)){
+      Serial.println(results.value, HEX);
+      irrecv.resume();
+    }
   } else {
     rumble.stop();
   }
