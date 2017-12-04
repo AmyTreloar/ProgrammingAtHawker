@@ -56,12 +56,6 @@ Arduino/cmake-build-debug/CMakeFiles/clion-log.txt
 *.sln
 *.vcxproj
 *.filters
-
-Arduino/*/.project
-Arduino/*/.cproject
-Arduino/*/*/language.settings.xml
-Arduino/*/*/*.prefs
-Arduino/.metadata/*
 Arduino/RoboGuy/RoboGuy/__vm/.RoboGuy.vsarduino.h
 Arduino/RoboGuy/RoboGuy/__vm/.RoboGuy.vsarduino.h
 Arduino/RoboGuy/RoboGuy/__vm/Compile.vmps.xml
@@ -80,6 +74,7 @@ Arduino/RoboGuy/RoboGuy/Release/board.buildinfo
 Arduino/RoboGuy/RoboGuy/__vm/.RoboGuy.vsarduino.h
 Arduino/RoboGuy/.vs/RoboGuy/v15/.suo
 Arduino/RoboGuy/.vs/RoboGuy/v15/.suo
+<<<<<<< HEAD
 Arduino/.metadata/.lock
 Arduino/.metadata/.log
 *.zip
@@ -93,3 +88,11 @@ Projects/SubjectMaker/2018/S2/.idea/workspace.xml
 Projects/SubjectMaker/2018/S2/subjectmaker.py
 Projects/SubjectMaker/2018/S2/subjects.txt
 Projects/SubjectMaker/2018/S2/UbD_Template_2.docx
+=======
+Arduino/RoboGuy/RoboGuy/__vm/.RoboGuy.vsarduino.h
+Arduino/RoboGuy/.vs/RoboGuy/v15/.suo
+Arduino/RoboGuy/RoboGuy/__vm/.RoboGuy.vsarduino.h
+>>>>>>> ef1722f58c073ce783b99e8f4a3e0f1a25f30e56
+*.pdom
+*.xml
+Arduino/.metadata/.plugins/org.eclipse.core.resources/.history/1/d07126784ac8001712e6eb420c7a9928
