@@ -18,9 +18,9 @@ void draw() {
   fill(255, 0, 0);
   ellipse(x, y, r, r);
   if (stepRight){
-    x = x + 1;
+    x = x + step;
   } else {
-    x = x - 1;
+    x = x - step;
   }
   if (x > width-r/2){
     stepRight = false;
