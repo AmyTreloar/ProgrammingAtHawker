@@ -96,7 +96,12 @@ Arduino/RoboGuy/RoboGuy/__vm/.RoboGuy.vsarduino.h
 *.pdom
 *.xml
 Arduino/.metadata/.plugins/org.eclipse.core.resources/.history/1/d07126784ac8001712e6eb420c7a9928
+<<<<<<< HEAD
 *.rtf
 *.txt
 *.iml
 Processing/RandomWalkers/RandomWalkers.pde
+=======
+Python/Tools/names/names.txt
+*.txt
+>>>>>>> dcd8bd916e05d17d984c3f2775eb6a4d9b415135
