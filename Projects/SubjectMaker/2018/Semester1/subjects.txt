@@ -1,5 +1,5 @@
+CASE_MicroControllers
+CASE_InformationTechnologyProject
 CASE_IntroductionToProgramming
-CASE_RoboticsAndIntelligentSystems
-CASE_GamesDesignAndDevelopment
-ENGR_EngineerDrawingAndDesign
-ITAP_DigitalMedia
+ENGR_MechatronicEngineering
+ITAP_SpreadsheetsAndDatabases
