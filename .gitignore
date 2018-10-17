@@ -11,11 +11,11 @@
 /*/.idea/dictionaries
 /*/.idea/vcs.xml
 /*/.idea/jsLibraryMappings.xml
-/Arduino/Engineering/.metadata/*
-/Arduino/Engineering/cmake-build-debug/*
-/Arduino/EVShield/TouchAndDrive/EVShield/*
-/Python/ClassroomFileSorter/venv/*
-/Python/*/venv/*
+/2018/Arduino/Engineering/.metadata/*
+/2018/Arduino/Engineering/cmake-build-debug/*
+/2018/Arduino/EVShield/TouchAndDrive/EVShield/*
+/2018/Python/ClassroomFileSorter/venv/*
+/2018/Python/*/venv/*
 
 # Sensitive or high-churn files:
 /*/.idea/dataSources.ids
