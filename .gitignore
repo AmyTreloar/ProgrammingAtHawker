@@ -16,6 +16,7 @@
 /2018/Arduino/EVShield/TouchAndDrive/EVShield/*
 /2018/Python/ClassroomFileSorter/venv/*
 /2018/Python/*/venv/*
+/Projects/MachineLearning/venv/*
 
 # Sensitive or high-churn files:
 /*/.idea/dataSources.ids
@@ -123,3 +124,4 @@ Projects/SubjectMaker/2018/Semester1/subjects.txt
 *.txt
 Projects/SubjectMaker/2018/Semester1/subjects.txt
 *.txt
+*.pth
