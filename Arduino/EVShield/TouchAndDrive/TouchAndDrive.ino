@@ -10,9 +10,10 @@ void setup() {
   Serial.begin(115200);
   delay(500);
   Serial.println("Initializing device...");
+  Serial.println("...");
 
   evshield.init(SH_HardwareI2C);
-
+  Serial.println("Shield, initialsed");
   while (!evshield.getButtonState(BTN_GO)){
     if  (millis() % 1000 < 3) {
       Serial.println("Press GO button to continue...");
