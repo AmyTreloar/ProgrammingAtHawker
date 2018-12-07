@@ -11,6 +11,12 @@
 /*/.idea/dictionaries
 /*/.idea/vcs.xml
 /*/.idea/jsLibraryMappings.xml
+/2018/Arduino/Engineering/.metadata/*
+/2018/Arduino/Engineering/cmake-build-debug/*
+/2018/Arduino/EVShield/TouchAndDrive/EVShield/*
+/2018/Python/ClassroomFileSorter/venv/*
+/2018/Python/*/venv/*
+/Projects/MachineLearning/venv/*
 
 # Sensitive or high-churn files:
 /*/.idea/dataSources.ids
@@ -124,3 +130,11 @@ Python/Tools/names/names.txt
 =======
 >>>>>>> dcd8bd916e05d17d984c3f2775eb6a4d9b415135
 >>>>>>> 4a7ab36ef7b31303f658e10d8b626b5c79d54285
+Projects/SubjectMaker/2018/Semester1/subjects.txt
+Projects/SubjectMaker/2018/Semester1/quickstart.py
+Projects/SubjectMaker/2018/Semester1/subjects.txt
+*.txt
+*.txt
+Projects/SubjectMaker/2018/Semester1/subjects.txt
+*.txt
+*.pth

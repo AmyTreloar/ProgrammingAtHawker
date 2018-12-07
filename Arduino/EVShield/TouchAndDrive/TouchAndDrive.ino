@@ -10,9 +10,10 @@ void setup() {
   Serial.begin(115200);
   delay(500);
   Serial.println("Initializing device...");
+  Serial.println("...");
 
   evshield.init(SH_HardwareI2C);
-
+  Serial.println("Shield, initialsed");
   while (!evshield.getButtonState(BTN_GO)){
     if  (millis() % 1000 < 3) {
       Serial.println("Press GO button to continue...");
@@ -44,9 +45,11 @@ void loop() {
       if (touch_status){
         Serial.println("Run unlimited");
         evshield.bank_a.motorRunUnlimited(SH_Motor_1, SH_Direction_Forward, 100);
+        evshield.bank_b.motorRunUnlimited(SH_Motor_1, SH_Direction_Forward, 100);
       } else {
         Serial.println("stop (float)");
         evshield.bank_a.motorStop(SH_Motor_1, SH_Next_Action_Float);
+        evshield.bank_b.motorStop(SH_Motor_1, SH_Next_Action_Float);
       }
 
       last_status = touch_status;
