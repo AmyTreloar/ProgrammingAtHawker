@@ -68,7 +68,10 @@ def ceaser(msg, key, encrypting=True):
         translated += SYMBOLS[translated_index]
     return translated
 
-
+def ceaser_cracker(msg):
+    msg = msg.upper()
+    symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+    
 letters = make_stats_dict()
 print(letters)
 letters = letter_stats(letters)
