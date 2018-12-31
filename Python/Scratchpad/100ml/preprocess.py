@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 dataset = pd.read_csv("datasets/Data.csv")
-#print(dataset)
+print(dataset)
 x = dataset.iloc[ : , :-1].values
 y = dataset.iloc[ : , 3].values
 
