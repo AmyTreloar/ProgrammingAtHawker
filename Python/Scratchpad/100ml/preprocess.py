@@ -1,8 +1,10 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.preprocessing import Imputer, LabelEncoder, OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+
 
 dataset = pd.read_csv("datasets/Data.csv")
 print(dataset)
@@ -27,5 +29,11 @@ x_train, x_test, y_train, y_test = train_test_split( x , y , test_size = 0.2, ra
 sc_x = StandardScaler()
 x_train = sc_x.fit_transform(x_train)
 x_test = sc_x.fit_transform(x_test)
+<<<<<<< HEAD
+print(x_train, y_train)
+
+
+=======
 print(x_train)
 print(x_test)
+>>>>>>> 5927721522a1cbeba719ce04c9543b180ddba7c3
