@@ -1,0 +1,13 @@
+.guarantee {
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    background-color: honeydew;
+    padding: 25px;
+}
+
+img.centre {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
