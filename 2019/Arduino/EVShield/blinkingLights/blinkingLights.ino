@@ -9,6 +9,7 @@ void setup() {
   Serial.println("Initialising EVshield on board LEDs");
 
   evshield.init(SH_HardwareI2C);
+  Serial.println("Initialisation complete");
   evshield.bank_a.ledSetRGB(0, 255, 0);
   evshield.bank_b.ledSetRGB(0, 255, 0);
 
