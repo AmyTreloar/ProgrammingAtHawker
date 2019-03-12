@@ -4,7 +4,8 @@
 EVShield evshield(0x34, 0x36);
 EVs_EV3Color leftLightSensor;
 EVs_EV3Color rightLightSensor;
-
+int DARK = 40; 
+int LIGHT = 70; 
 int leftReading;
 int rightReading;
 void setup() {
@@ -25,5 +26,14 @@ void setup() {
 void loop() {
   leftReading = leftLightSensor.getVal();
   rightReading = rightLightSensor.getVal();
-  Serial.print(leftReading); Serial.print(" "); Serial.println(rightReading);
+  if (leftReading > LIGHT && rightReading > LIGHT){
+    //REVERSE?
+  } else if (leftReading < LIGHT && rightReading < LIGHT){
+    // FORWARDS
+  } else if (leftReading < LIGHT){
+    // TURN RIGHT
+  } else if (rightReading < LIGHT){
+    // TURN LEFT
+  }
+  
 }
