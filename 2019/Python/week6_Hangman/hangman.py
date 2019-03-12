@@ -2,7 +2,13 @@ import random
 
 
 def init_game():
-    with open('better_words.txt') as fp:
+    """
+    Initialises the game state.
+    Reads through a file, chooses a name by random, and returns both the
+    random name and hidden name for students as a list
+    :return: rnd_word (string), rnd_secret (a list of characters)
+    """
+    with open('good_words.txt') as fp:
         words = fp.readlines()
     rnd_word = random.choice(words).strip()
     rnd_secret = []
@@ -12,6 +18,13 @@ def init_game():
 
 
 def test_end_conditions(secret, current_fails, max_fails):
+    """
+
+    :param secret:
+    :param current_fails:
+    :param max_fails:
+    :return:
+    """
     if '_' not in secret:
         print("You are the winner!")
         return False
