@@ -7,11 +7,11 @@
 5. [EV3 Button](./EVShield/ev3button)
 6. [NXT Motor](./EVShield/nxt_button_nxt_motor)
 7. [NXT Light sensor](./EVShield/nxtLineSensor)
-8. EV3 Light Sensor
+8. [EV3 Light Sensor](./EVShield/evColorLineSense)
 9. [EV3 Colour Sensor](./EVShield/evecolorsense)
 10. [HiTech Colour Sensor](./EVShield/hitechnicColorSensor)
 11. NXT Ultrasound Distance Sensor
-12. EV3 Ultrasound Distance Sensor
+12. [EV3 Ultrasound Distance Sensor](./EV3Ultrasound)
 13. EV3 Infrared Distance Sensor
 
 ## Robotics cook book
