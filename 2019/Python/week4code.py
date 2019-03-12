@@ -1,11 +1,9 @@
-def greet_users(names, known_names):
-    for name in names:
-        if name in known_names:
-            print(f"Hey, {name.title()}, how are you going?")
-        else:
-            print(f"Good to meet you {name.title()}")
+from datetime import date, datetime
 
-    
-known_names = ["adam", 'betty', 'eddie']
-s_names = ['adam', 'bob', 'charlie']
-greet_users(s_names, known_names)
+
+foo = datetime.now()
+d0 = date(2000, 6, 24)
+d1 = date(2019, 3, 7)
+delta = d1 - d0
+print(foo, delta.days)
+
