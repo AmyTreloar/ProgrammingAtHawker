@@ -16,11 +16,12 @@ def get_hidden_word(word):
 
 random_word = get_word("good_words.txt")
 hidden_word = get_hidden_word(random_word)
-#all letters found!
-#running out of guesses!
+
 
 guesses=0
 max_guesses = 3
+#todo: Write a second condition to end the game when
+# all the letters have been found
 while guesses <= max_guesses:
     print(random_word, ''.join(hidden_word), f'Guesses left {max_guesses - guesses}')
     guess = input("Guess a letter: ")
@@ -33,5 +34,6 @@ while guesses <= max_guesses:
     if not found_letter:
         guesses += 1
 
-
+#todo: If the game was lost. Make fun of the player
+#todo: If the game was won, congratulate the player!
 
