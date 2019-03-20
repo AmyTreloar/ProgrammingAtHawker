@@ -24,13 +24,13 @@ max_guesses = 3
 # all the letters have been found
 while guesses <= max_guesses:
     print(random_word, ''.join(hidden_word), f'Guesses left {max_guesses - guesses}')
+    #todo: guessing a function
     guess = input("Guess a letter: ")
     found_letter = False
     for i in range(0, len(random_word)):
         if guess == random_word[i]:
             found_letter = True
             hidden_word[i] = guess
-
     if not found_letter:
         guesses += 1
 
