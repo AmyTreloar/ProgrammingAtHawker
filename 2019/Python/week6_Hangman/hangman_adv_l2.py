@@ -33,7 +33,7 @@ def test_end_conditions(curr_fail, max_fail, chosen, hidden):
 
 file_name = 'good_words.txt'
 chosen_word = get_word_from_file(file_name)
-
+hidden_word = get_hidden_word(chosen_word)
 playing = True
 max_fails = 10
 current_fails = 0
