@@ -140,3 +140,4 @@ Projects/SubjectMaker/2018/Semester1/subjects.txt
 Projects/SubjectMaker/2018/Semester1/subjects.txt
 *.txt
 *.pth
+*.pyc
