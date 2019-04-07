@@ -17,9 +17,11 @@ void setup() {
     Serial.println ("Press GO button to continue");
     evshield.waitForButtonPress(BTN_GO);
 }
-
+int value; 
 void loop() {
     colourValue = colorSensor.readColor();
-    Serial.print("Color sensor value: "); Serial.println(colourValue);
+    value = colorSensor.readValue();
+    Serial.print("Color sensor : "); Serial.print(colourValue);
+    Serial.print(" ,Colour Value :"); Serial.println(value);
     delayMicroseconds(40);
 }
