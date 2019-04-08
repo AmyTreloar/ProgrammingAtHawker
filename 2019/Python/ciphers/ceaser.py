@@ -1,4 +1,4 @@
-SYMBOLS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!., '
+SYMBOLS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!.,'
 ENCRYPT = 0
 DECRYPT = 1
 
@@ -10,11 +10,11 @@ def caesar_cipher_lean(msg, key, mode=ENCRYPT):
         key = 0 - key
     for symbol in msg:
         symbol = symbol.upper().strip()
-        if symbol not in SYMBOLS:
+        if symbol not in SYMBOLS or symbol == '':
             continue
         symbol_index = SYMBOLS.find(symbol)
         translated_index = symbol_index + key
-        if translated_index >= len(SYMBOLS):
+        if translated_index > len(SYMBOLS):
             translated_index -= len(SYMBOLS)
         elif translated_index < 0:
             translated_index += len(SYMBOLS)
@@ -56,3 +56,7 @@ plaintext = ceaser_cipher(cipher, key, DECRYPT)
 plaintext2 = caesar_cipher_lean(cipher2, key, DECRYPT)
 print(plaintext)
 print(plaintext2)
+
+#todo: implement each of the tree ciphers as per google classroom
+#todo: Brute force cracker for ceaser cipher
+#todo: apply a frequency analysis for the ceaser cipher
