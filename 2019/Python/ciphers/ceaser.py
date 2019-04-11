@@ -1,4 +1,4 @@
-SYMBOLS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!.,'
+SYMBOLS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ?!., '
 ENCRYPT = 0
 DECRYPT = 1
 
@@ -14,7 +14,7 @@ def caesar_cipher_lean(msg, key, mode=ENCRYPT):
             continue
         symbol_index = SYMBOLS.find(symbol)
         translated_index = symbol_index + key
-        if translated_index > len(SYMBOLS):
+        if translated_index >= len(SYMBOLS):
             translated_index -= len(SYMBOLS)
         elif translated_index < 0:
             translated_index += len(SYMBOLS)
