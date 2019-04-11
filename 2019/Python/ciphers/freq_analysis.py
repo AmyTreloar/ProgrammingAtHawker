@@ -1,5 +1,7 @@
+import time
+
 ETAOIN = 'ETAOINSHRDLCUMWFGYPBVKJXQZ .,!'
-LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ.,! '
+LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ?!., '
 
 
 def get_letter_count(mesesage):
@@ -7,7 +9,8 @@ def get_letter_count(mesesage):
         'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0, 'F': 0,
         'G': 0, 'H': 0, 'I': 0, 'J': 0, 'K': 0, 'L': 0, 'M': 0, 'N': 0,
         'O': 0, 'P': 0, 'Q': 0, 'R': 0, 'S': 0, 'T': 0, 'U': 0, 'V': 0,
-        'W': 0, 'X': 0, 'Y': 0, 'Z': 0, '.': 0, ',':0, '!':0, ' ':0,
+        'W': 0, 'X': 0, 'Y': 0, 'Z': 0, '.': 0, ',': 0, '!': 0, ' ': 0,
+        '?': 0
     }
     for letter in mesesage.upper():
         if letter not in letter_count:
@@ -16,8 +19,10 @@ def get_letter_count(mesesage):
             letter_count[letter] += 1
     return letter_count
 
+
 def get_item_at_index_zero(items):
     return items[0]
+
 
 def get_frequency_order(message):
     letter_to_frequency = get_letter_count(message)
@@ -40,6 +45,7 @@ def get_frequency_order(message):
 
     return ''.join(freq_order)
 
+
 def english_frequency_match_score(message):
     freq_order = get_frequency_order(message)
     match_score = 0
@@ -50,6 +56,7 @@ def english_frequency_match_score(message):
         if uncommon_letter in freq_order[-6]:
             match_score += 1
     return match_score
+
 
 def decrypt_caeser_cipher(msg, key):
     out = ''
@@ -65,15 +72,15 @@ def decrypt_caeser_cipher(msg, key):
     return out
 
 
-
 def statsically_best_fit_caesar_cipher(msg):
     highest_tests = 0
     best_fit = None
     fit_key = None
-    import time
+
     for key in range(len(LETTERS)):
-        test = decrypt_caeser_cipher(message, key)
+        test = decrypt_caeser_cipher(msg, key)
         test_result = english_frequency_match_score(test)
+        print(key, test)
         if test_result > highest_tests:
             highest_tests = test_result
             best_fit = test
@@ -81,23 +88,29 @@ def statsically_best_fit_caesar_cipher(msg):
 
     return f"key={fit_key}, test_score ={highest_tests}\n{best_fit}"
 
+
 def statistical_dictionary_attack(message, words):
     freq_order = get_frequency_order(message)
-    msg_head = message[:7   ]
-    msg_tail = message[-7:]
-    print(msg_head, msg_tail)
-    print(ETAOIN)
+    print(message)
     print(freq_order)
-    for letter in freq_order:
-        #todo: guess letters based off of the most frequent letters in frequency orders.
-        pass
+    print(ETAOIN)
+    print(english_frequency_match_score(message))
+    # for i in range(len(message)):
+    #     if i % 3 == 0:
+    #         letters = message[i:i+3]
+    #         print(letters)
+
+    # for letter in freq_order:
+    #     # todo: guess letters based off of the most frequent letters in frequency orders.
+    #     pass
 
 
-
-message = "DSZQUBOBMZTJTAPGAUIFAFOJHNBADJQIFSJOHATZTUFNAFOBCMFEAUIFAXFTUFSOABMMJFTAJOAXPSMEAXBSAJJAUPASFBEATVCTUBOUJBMABNPVOUTAPGANPSTFDPEFEASBEJPADPNNVOJDBUJPOTAPGAUIFABYJTAQPXFSTAUIBUAIBEACFFOAFODJQIFSFEAVTJOHAFOJHNBANBDIJOFT"
+#message = "DSZQUBOBMZTJTAPGAUIFAFOJHNBADJQIFSJOHATZTUFNAFOBCMFEAUIFAXFTUFSOABMMJFTAJOAXPSMEAXBSAJJAUPASFBEATVCTUBOUJBMABNPVOUTAPGANPSTFDPEFEASBEJPADPNNVOJDBUJPOTAPGAUIFABYJTAQPXFSTAUIBUAIBEACFFOAFODJQIFSFEAVTJOHAFOJHNBANBDIJOFT"
+actual = "Three people can keep a secret, if two of them are dead!"
+message = "BU RRM.R!.YRMPN?MXRR.MNMARP RBLMVSMBE!M!SMBURZMN RMQRNQJ"
 print("Statistical fit caeser cipher: ")
 print(statsically_best_fit_caesar_cipher(message))
-print("Statistical dictionary attack: ")
-with open('dictionary.txt') as fp:
-    words = fp.readlines()
-print(statistical_dictionary_attack(message, words))
+# print("Statistical dictionary attack: ")
+# with open('other_words.txt') as fp:
+#     words = fp.readlines()
+# print(statistical_dictionary_attack(message, words))
