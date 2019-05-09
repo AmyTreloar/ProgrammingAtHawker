@@ -1,6 +1,7 @@
-ETAOIN = 'ETAOINSHRDLCUMWFGYPBVKJXQZ .,!'
-LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ.,! '
-
+#ETAOIN = 'ETAOINSHRDLCUMWFGYPBVKJXQZ .,!'
+#LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ.,! '
+ETAOIN = 'ETAOINSHRDLCUMWFGYPBVKJXQZ'
+LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 def get_letter_count(mesesage):
     letter_count = {
@@ -74,29 +75,40 @@ def statsically_best_fit_caesar_cipher(msg):
     for key in range(len(LETTERS)):
         test = decrypt_caeser_cipher(message, key)
         test_result = english_frequency_match_score(test)
+        print(key, test_result, test)
         if test_result > highest_tests:
             highest_tests = test_result
             best_fit = test
             fit_key = key
 
-    return f"key={fit_key}, test_score ={highest_tests}\n{best_fit}"
+    return f"{best_fit}"
 
 def statistical_dictionary_attack(message, words):
     freq_order = get_frequency_order(message)
-    msg_head = message[:7   ]
-    msg_tail = message[-7:]
-    print(msg_head, msg_tail)
-    print(ETAOIN)
     print(freq_order)
-    for letter in freq_order:
-        #todo: guess letters based off of the most frequent letters in frequency orders.
-        pass
+    print(ETAOIN)
+    msg_head = freq_order[:6]
+    msg_tail = freq_order[-6:]
+    etaoin_head = ETAOIN[:6]
+    etaoin_tail = ETAOIN[-6:]
+    print(etaoin_head)
+    print(msg_head)
+    print(etaoin_tail)
+    print(msg_tail)
+    print(message)
+    print(secret.upper().replace(" ", ""))
+    msg = list(message)
+    for i in range(len(freq_order)):
+        for j in range(len(msg)):
+            if msg[j] == freq_order[i]:
+                msg[j] = ETAOIN[i]
+    return ''.join(msg)
 
-
-
-message = "DSZQUBOBMZTJTAPGAUIFAFOJHNBADJQIFSJOHATZTUFNAFOBCMFEAUIFAXFTUFSOABMMJFTAJOAXPSMEAXBSAJJAUPASFBEATVCTUBOUJBMABNPVOUTAPGANPSTFDPEFEASBEJPADPNNVOJDBUJPOTAPGAUIFABYJTAQPXFSTAUIBUAIBEACFFOAFODJQIFSFEAVTJOHAFOJHNBANBDIJOFT"
-print("Statistical fit caeser cipher: ")
-print(statsically_best_fit_caesar_cipher(message))
+secret = "Cryptanalysis of the Enigma ciphering system enabled the western Allies in World War II to read substantial amounts of Morse-coded radio communications of the Axis powers that had been enciphered using Enigma machines. This yielded military intelligence which, along with that from other decrypted Axis radio and teleprinter transmissions, was given the codename Ultra. This was considered by western Supreme Allied Commander Dwight D. Eisenhower to have been 'decisive' to the Allied victory."
+message = "DSZQUBOBMZTJTPGUIFFOJHNBDJQIFSJOHTZTUFNFOBCMFEUIFXFTUFSOBMMJFTJOXPSMEXBSJJUPSFBETVCTUBOUJBMBNPVOUTPGNPSTFDPEFESBEJPDPNNVOJDBUJPOTPGUIFBYJTQPXFSTUIBUIBECFFOFODJQIFSFEVTJOHFOJHNBNBDIJOFTUIJTZJFMEFENJMJUBSZJOUFMMJHFODFXIJDIBMPOHXJUIUIBUGSPNPUIFSEFDSZQUFEBYJTSBEJPBOEUFMFQSJOUFSUSBOTNJTTJPOTXBTHJWFOUIFDPEFOBNFVMUSBUIJTXBTDPOTJEFSFECZXFTUFSOTVQSFNFBMMJFEDPNNBOEFSEXJHIUEFJTFOIPXFSUPIBWFCFFOEFDJTJWFUPUIFBMMJFEWJDUPSZ"
+# print("Statistical fit caeser cipher: ")
+# best_fit = statsically_best_fit_caesar_cipher(message)
+# print(best_fit)
 print("Statistical dictionary attack: ")
 with open('dictionary.txt') as fp:
     words = fp.readlines()

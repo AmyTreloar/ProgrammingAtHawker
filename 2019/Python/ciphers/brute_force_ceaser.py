@@ -41,13 +41,14 @@ cipher = "6U4RR2R12YRPN0XRR2N5RP4R6MVS6911S6URZN4RQRNQK"
 plain_text = ''
 candidites = []
 
-with open('other_words.txt') as fp:
+with open('good_words.txt') as fp:
     words = fp.readlines()
 
 # words = ["three"]
 
 for i in range(0, 26):
     test = ceaser_cipher(cipher, i, DECRYPT)
+    print(i, test)
     words_found = find_words_in_text(words, test)
     if words_found >= 5:
         candidites.append(test)

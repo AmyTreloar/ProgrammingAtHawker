@@ -1,0 +1,3 @@
+foo = '\\stuff'
+
+print(foo)
