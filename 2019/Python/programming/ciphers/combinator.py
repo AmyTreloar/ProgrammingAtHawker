@@ -9,7 +9,6 @@ keypad = {
     9: 'wxyz'
 }
 
-
 def get_letter_combos(code):
     """breaks up each string into a list of characters"""
     out = []
