@@ -1,0 +1,21 @@
+cipher = [2, 3, 2, 6]
+2 = abc
+3 = def
+2 = abc
+6 = mno
+
+First possible combos:
+a
+b
+c
+
+Second possible combos
+ad
+ae
+af
+bd
+be
+bf
+cd
+ce
+cf

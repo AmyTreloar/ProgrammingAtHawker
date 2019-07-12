@@ -17,7 +17,7 @@ def get_letter_combos(code):
     return out
 
 
-def add_more_combos(new_combo, current_combo):
+def add_more_combos(new_combo, current_combo=None):
     if current_combo is None:
         current_combo = []
         for letter in new_combo:
@@ -32,7 +32,6 @@ def add_more_combos(new_combo, current_combo):
 
 
 cipher = [2, 3, 2, 6]
-
 matrix = None
 
 for key in cipher:
@@ -41,3 +40,5 @@ for key in cipher:
 
 for text in matrix:
     print(''.join(text))
+
+print(len(matrix))
