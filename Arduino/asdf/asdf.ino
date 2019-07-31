@@ -1,12 +1,19 @@
 #include "Arduino.h"
-//The setup function is called once at startup of the sketch
-void setup()
-{
-// Add your initialization code here
+int blinkPin = 7;
+int buttonPin = 10;
+int buttonState=0;
+void setup(){
+  Serial.begin(9600);
+  pinMode(buttonPin, INPUT);
+  pinMode(blinkPin, OUTPUT);
 }
-
-// The loop function is called in an endless loop
-void loop()
-{
-//Add your repeated code here
+void loop(){
+  buttonState = digitalRead(buttonPin);
+  if (buttonState == 1){
+    Serial.println("on");
+    digitalWrite(blinkPin, HIGH);
+  } else {
+    Serial.println("off");
+    digitalWrite(blinkPin, LOW);
+  }
 }
