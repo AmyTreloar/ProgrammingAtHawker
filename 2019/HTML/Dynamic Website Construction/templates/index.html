@@ -1,15 +1,34 @@
-<html>
-    <head>
-        {% if title %}
-        <title>{{ title }} - Microblog</title>
-        {% else %}
-        <title>Welcome to Microblog</title>
+{% extends "base.html" %}
+{% block content %}
+        {% if user %}
+            <h1>Hello {{user.username}}!</h1>
         {% endif %}
-    </head>
-    <body>
-        <h1>Hi, {{ user.username }}!</h1>
-            {% for post in posts %}
-                <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+
+
+        {% if not user %}
+            <a href="./login">Login</a>
+        {% endif %}
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
             {% endfor %}
-    </body>
-</html>
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <p>Make a post!!!!</p>
+        <form action="" method="post" novalidates>
+            {{form.hidden_tag()}}<br>
+            <p>{{form.content}}</p>
+            <p>{{form.submit}}</p>
+        </form>
+
+        {#
+        {% for comment in comments %}
+            {% comment.content %} <br>
+        {% endfor}
+        #}
+
+{% endblock %}
