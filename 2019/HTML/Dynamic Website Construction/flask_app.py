@@ -1,7 +1,7 @@
 
 # A very simple Flask Hello World app for you to get started with...
 
-from flask import Flask, render_template, flash, redirect, url_for
+from flask import Flask, render_template, flash, redirect, url_for, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired
@@ -10,11 +10,12 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "P@55w0rd";
+
 SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
-    username="<username>",
-    password="<password>",
-    hostname="<hostname>",
-    databasename="<databasename>",
+    username="cartea",
+    password="}Px,rVE3jx@g>>5L",
+    hostname="cartea.mysql.pythonanywhere-services.com",
+    databasename="cartea$comments",
 )
 app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
 app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
@@ -41,23 +42,21 @@ class LoginForm(FlaskForm):
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
 
+class MessageForm(FlaskForm):
+    content = StringField('Message', validators=[DataRequired()])
+    submit = SubmitField("message")
+
 user=None
 
-@app.route('/')
-@app.route("/index")
+@app.route('/', methods=['GET', 'POST'])
+@app.route("/index", methods=['GET', 'POST'])
 def hello_world():
     title = None
-    posts = [
-        {
-            'author' : {'username': "Bob"},
-            'body' : "I like cats!"
-        },
-        {
-            'author': {'username': "Karen"},
-            'body' : "I also like cats!"
-        }
-    ]
-    return render_template("index2.html", user=user, title=title, posts=posts)
+    form = MessageForm()
+    if form.validate_on_submit():
+        flash.validate_on_submit(f'message {form.content}')
+        return redirect('/')
+    return render_template("index2.html", user=user, title=title, form=form, comments=Comment.query.all())
 
 
 @app.route("/bar")
