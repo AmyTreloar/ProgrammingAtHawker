@@ -4,7 +4,6 @@ typedef struct {
   char* symbol;
 } symLookup;
 
-
 const symLookup morseCode[27] {
   {"a", ".-"},
   {"b", "-..."},
@@ -34,6 +33,7 @@ const symLookup morseCode[27] {
   {"z", "--.."},
   {" ", "     "},
 };
+
 
 int unit = 400;
 int dot = unit;
