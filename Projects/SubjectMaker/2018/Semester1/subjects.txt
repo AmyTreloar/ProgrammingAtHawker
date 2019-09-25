@@ -1,5 +1,0 @@
-CASE_MicroControllers_2018
-CASE_InformationTechnologyProject_2018
-CASE_IntroductionToProgramming_2018
-ENGR_MechatronicEngineering_2018
-ITAP_SpreadsheetsAndDatabases_2018
