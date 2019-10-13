@@ -142,3 +142,4 @@ Projects/SubjectMaker/2018/Semester1/subjects.txt
 *.pth
 *.pyc
 *.iml
+.idea/ProgrammingAtHawker.iml
